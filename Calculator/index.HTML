@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <style>
+      body {
+        background-color: black;
+      }
+
+      .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: top;
+      }
+
+      .digits,
+      .symbols,
+      .clearButton {
+        height: 50px;
+        width: 50px;
+        border-radius: 25px;
+        border: none;
+        color: white;
+        font-size: 16px;
+        background-color: rgb(51, 51, 51);
+        margin-right: 5px;
+        margin-bottom: -10px;
+      }
+
+      .symbols {
+        background-color: rgb(254, 160, 10);
+        font-size: 18px;
+      }
+
+      .display {
+        color: white;
+        margin-left: 9px;
+        font-size: 22px;
+      }
+
+      .clearButton {
+        font-size: 12px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p class="js-display display"></p>
+
+    <div class="main">
+      <p>
+        <button
+          onclick="
+          updateCalculation('1') ;
+        "
+          class="digits"
+        >
+          1
+        </button>
+        <button
+          onclick="
+          updateCalculation('2') ;
+        "
+          class="digits"
+        >
+          2
+        </button>
+        <button
+          onclick="
+          updateCalculation('3') ;
+      "
+          class="digits"
+        >
+          3
+        </button>
+        <button
+          onclick="
+          updateCalculation('+') ;
+      "
+          class="symbols"
+        >
+          +
+        </button>
+      </p>
+      <p>
+        <button
+          onclick="
+          updateCalculation('4');
+      
+        "
+          class="digits"
+        >
+          4
+        </button>
+        <button
+          onclick="
+          updateCalculation('5');
+        "
+          class="digits"
+        >
+          5
+        </button>
+        <button
+          onclick="
+          updateCalculation('6');
+      
+      "
+          class="digits"
+        >
+          6
+        </button>
+        <button
+          onclick="
+          updateCalculation('-');
+      "
+          class="symbols"
+        >
+          -
+        </button>
+      </p>
+      <p>
+        <button
+          onclick="
+          updateCalculation('7') ;
+      
+        "
+          class="digits"
+        >
+          7
+        </button>
+        <button
+          onclick="
+          updateCalculation('8');
+        "
+          class="digits"
+        >
+          8
+        </button>
+        <button
+          onclick="
+          updateCalculation(9);
+      "
+          class="digits"
+        >
+          9
+        </button>
+        <button
+          onclick="
+          updateCalculation('*') ;
+      "
+          class="symbols"
+        >
+          *
+        </button>
+      </p>
+      <p>
+        <button
+          onclick="
+          updateCalculation('0') ;
+      
+        "
+          class="digits"
+          ;
+        >
+          0
+        </button>
+        <button
+          onclick="
+          updateCalculation('.') ;
+        "
+          class="digits"
+          ;
+        >
+          .
+        </button>
+        <button
+          onclick="
+           calculation=eval(calculation);
+           display();
+           localStorage.setItem('calculation', calculation);
+        "
+          class="digits"
+          ;
+        >
+          =
+        </button>
+        <button
+          onclick="
+          updateCalculation('/');
+      "
+          class="symbols"
+          ;
+        >
+          /
+        </button>
+      </p>
+      <p>
+        <button
+          onclick="
+          calculation='';
+          display();
+          localStorage.setItem('calculation'), calculation"
+          class="clearButton"
+          ;
+        >
+          Clear
+        </button>
+      </p>
+    </div>
+  </body>
+  <script>
+    let calculation = localStorage.getItem("calculation") || "";
+    let total = 0;
+
+    display();
+
+    function updateCalculation(num) {
+      calculation += num;
+      display();
+      localStorage.setItem("calculation", calculation);
+    }
+
+    function display() {
+      document.querySelector(".js-display").innerHTML = calculation;
+    }
+  </script>
+</html>
